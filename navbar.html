@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-custom">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">DIGIMA</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="productsDropdown" role="button" 
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Products
+                    </a>
+                    <ul class="dropdown-menu shadow-lg"
+                        style="background-color: #09090d; border-radius: 10px; border: 2px solid #3a305033;">
+                        <li><a class="dropdown-item text-white" href="#">DeepFake Checker</a></li>
+                        <li><a class="dropdown-item text-white" href="#">Plagiarism Checker</a></li>
+                        <li><a class="dropdown-item text-white" href="#">Fact Checker</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+            </ul>
+            <div class="d-flex align-items-center">
+                <button id="login-btn" class="btn btn-outline-light rounded-pill px-4 py-2 me-2" onclick="signIn()">Log In</button>
+                <button id="signup-btn" class="btn btn-light rounded-pill px-4 py-2" onclick="signIn()">Sign Up</button>
+                <div class="dropdown">
+                    <img id="profile-pic" class="rounded-circle" width="40" height="40" style="cursor: pointer;" 
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                    <ul class="dropdown-menu dropdown-menu-end p-3 shadow-lg"
+                        style="background-color: #09090d; border-radius: 10px; border: 2px solid #3a305033;">
+                        <li>
+                            <button class="btn bg-custom btn-outline-light text-white btn-sm w-100 d-flex align-items-center justify-content-start mb-2" id="settings-btn">
+                                <i class="bi bi-gear me-2"></i> Settings
+                            </button>
+                            <button class="btn bg-custom btn-outline-light text-white btn-sm w-100 d-flex align-items-center justify-content-start" id="sign-out-btn">
+                                <i class="bi bi-box-arrow-in-right me-2"></i> Sign Out
+                            </button>                            
+                        </li>
+                    </ul>
+                </div>                                 
+            </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,16 @@
+.btn:focus, .btn:active {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.bg-custom {
+    background-color: #09090d !important;
+}
+
+.dropdown-toggle::after {
+    transition: transform 0.3s ease-in-out;
+}
+
+.dropdown.show .dropdown-toggle::after {
+    transform: rotate(180deg);
+}
