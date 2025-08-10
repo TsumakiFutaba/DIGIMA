@@ -1,8 +1,45 @@
+body {
+    color: #000; /* default text color for light mode */
+    background-color: #fff;
+}
+
+body.night-mode {
+    color: #e0e0e0; /* softer white text for night mode */
+    background-color: #121212;
+}
+
+/* Links */
+body.night-mode a {
+    color: #80cbc4; /* soft teal */
+}
+body.night-mode a:hover {
+    color: #4db6ac; /* brighter teal on hover */
+}
+
+/* Buttons */
 .btn:focus, .btn:active {
     box-shadow: none !important;
     outline: none !important;
 }
+body.night-mode button {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+}
+body.night-mode button:hover {
+    background-color: #444;
+}
 
+/* Form elements */
+body.night-mode input,
+body.night-mode textarea,
+body.night-mode select {
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #555;
+}
+
+/* Background utility */
 .bg-custom {
     background-color: #09090d !important;
 }
@@ -14,7 +51,67 @@
 .dropdown.show .dropdown-toggle::after {
     transform: rotate(180deg);
 }
+
 .logo-small {
     width: 120px;
     height: auto;
+}
+
+/* Default Light Mode Sign In Button */
+.btn-signin {
+    background: var(--primary-gradient);
+    color: black;
+    border: 1px solid var(--border-color);
+}
+
+/* Dark Mode Sign In Button */
+body.night-mode .btn-signin {
+    background: var(--primary-gradient);
+    color: white;
+    border: 1px solid var(--border-color-dark);
+}
+
+/* Light mode: Light background + black text */
+body.light-mode .signin-btn {
+    background: #f0f0f0;
+    color: black;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+/* Toggle Switch Container */
+.toggle-switch {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* The moving circle/icon */
+.toggle-circle {
+    position: absolute;
+    top: 3px;
+    left: 3px; /* Start at left in light mode */
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    transition: left 0.3s ease, background-color 0.3s ease;
+}
+
+/* Night mode toggle */
+.night-mode .toggle-switch {
+    background-color: #444;
+}
+.night-mode .toggle-circle {
+    left: 33px; /* Move to right */
+    background-color: #222;
+    color: #ffd700; /* Gold for sun icon */
 }
