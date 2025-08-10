@@ -14,3 +14,7 @@
 .dropdown.show .dropdown-toggle::after {
     transform: rotate(180deg);
 }
+.logo-small {
+    width: 120px;
+    height: auto;
+}
