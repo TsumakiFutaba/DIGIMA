@@ -1,3 +1,4 @@
+/* GLOBAL LIGHT/DARK MODE BASE */
 body {
     color: #000; /* default text color for light mode */
     background-color: #fff;
@@ -9,17 +10,28 @@ body.night-mode {
 }
 
 /* Links */
+a {
+    color: #0d6efd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: #0a58ca;
+}
 body.night-mode a {
     color: #80cbc4; /* soft teal */
 }
 body.night-mode a:hover {
-    color: #4db6ac; /* brighter teal on hover */
+    color: #4db6ac; /* brighter teal */
 }
 
 /* Buttons */
 .btn:focus, .btn:active {
     box-shadow: none !important;
     outline: none !important;
+}
+button {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 body.night-mode button {
     background-color: #333;
@@ -31,6 +43,9 @@ body.night-mode button:hover {
 }
 
 /* Form elements */
+input, textarea, select {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
 body.night-mode input,
 body.night-mode textarea,
 body.night-mode select {
@@ -39,46 +54,40 @@ body.night-mode select {
     border: 1px solid #555;
 }
 
+/* Card Borders & Shadows */
+.card {
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+body.night-mode .card {
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
 /* Background utility */
 .bg-custom {
     background-color: #09090d !important;
 }
 
-.dropdown-toggle::after {
-    transition: transform 0.3s ease-in-out;
-}
-
-.dropdown.show .dropdown-toggle::after {
-    transform: rotate(180deg);
-}
-
+/* Logo */
 .logo-small {
     width: 120px;
     height: auto;
 }
 
-/* Default Light Mode Sign In Button */
+/* Sign In Button */
 .btn-signin {
-    background: var(--primary-gradient);
+    background: var(--primary-gradient, linear-gradient(90deg, #0d6efd, #0a58ca));
     color: black;
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(0,0,0,0.15);
 }
-
-/* Dark Mode Sign In Button */
 body.night-mode .btn-signin {
-    background: var(--primary-gradient);
     color: white;
-    border: 1px solid var(--border-color-dark);
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
-/* Light mode: Light background + black text */
-body.light-mode .signin-btn {
-    background: #f0f0f0;
-    color: black;
-    border: 1px solid rgba(0,0,0,0.2);
-}
-
-/* Toggle Switch Container */
+/* Toggle Switch */
 .toggle-switch {
     position: relative;
     width: 60px;
@@ -88,12 +97,10 @@ body.light-mode .signin-btn {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
-/* The moving circle/icon */
 .toggle-circle {
     position: absolute;
     top: 3px;
-    left: 3px; /* Start at left in light mode */
+    left: 3px;
     width: 24px;
     height: 24px;
     background-color: white;
@@ -105,13 +112,11 @@ body.light-mode .signin-btn {
     box-shadow: 0 2px 4px rgba(0,0,0,0.3);
     transition: left 0.3s ease, background-color 0.3s ease;
 }
-
-/* Night mode toggle */
 .night-mode .toggle-switch {
     background-color: #444;
 }
 .night-mode .toggle-circle {
-    left: 33px; /* Move to right */
+    left: 33px;
     background-color: #222;
-    color: #ffd700; /* Gold for sun icon */
+    color: #ffd700;
 }

@@ -16,96 +16,123 @@
 </head>
 
 <body>
-    <div id="navbar-container"></div>
+     <div id="navbar-container"></div>
 
-
-
-        <div class="container-fuild">
-
-				<!-- start login -->
-				<div class="row justify-content-center align-items-center vh-100 overflow-auto flex-wrap ">
-					<div class="col-lg-4 mx-auto">
-						<form action="digima/index.html" class="d-flex justify-content-center align-items-center">
-							<div class="d-flex flex-column justify-content-lg-center p-4 p-lg-0 pb-0 flex-fill">
-								<div class="mx-auto mb-5 text-center">
-									<img src="assets/digima_logo.svg" class="img-fluid" alt="Logo" style="width: 120px; height: auto;">
-								</div>
-								<div class="card border-0 p-lg-3 shadow-lg">
-									<div class="card-body">	
-										<div class="toggle-switch" id="modeToggle">
-                                            <div class="toggle-circle" id="toggleCircle">🌙</div>
-                                        </div>
-										<div class="text-center mb-3">
-											<h5 class="mb-2">Sign In</h5>
-										</div>
-										<div class="mb-3">
-											<label class="form-label">Email Address</label>
-											<div class="input-group">
-												<span class="input-group-text border-end-0">
-													<i class="isax isax-sms-notification"></i>
-												</span>
-												<input type="text" value="" class="form-control border-start-0 ps-0" placeholder="Email">
-											</div>
-										</div>
-										<div class="mb-3">
-											<label class="form-label">Password</label>
-											<div class="pass-group input-group">
-												<span class="input-group-text border-end-0">
-													<i class="isax isax-lock"></i>
-												</span>
-												<span class="isax toggle-password isax-eye-slash"></span>
-												<input type="password" class="pass-inputs form-control border-start-0 ps-0" placeholder="Password">
-											</div>
-										</div>
-										<div class="d-flex align-items-center justify-content-between mb-3">
-											<div class="d-flex align-items-center">
-												<div class="form-check form-check-md mb-0">
-													<input class="form-check-input" id="remember_me" type="checkbox">
-													<label for="remember_me" class="form-check-label mt-0">Remember Me</label>
-												</div>
-											</div>
-											<div class="text-end">
-												<a href="forgot-password.html">Forgot Password</a>
-											</div>
-										</div>
-											<div class="mb-1">
-                                                <button type="submit" class="btn btn-dark text-white w-100 sign-in-btn">Sign In</button>
-                                            </div>
-                                            <div class="login-or"></div>
-											<span class="span-or">Or:</span>
-										</div>
-										<div class="mb-3">
-                                            <div class="d-flex align-items-center justify-content-center flex-wrap">
-                                                <div class="text-center me-2 flex-fill">
-                                                    <a href="javascript:void(0);"
-                                                        class="social-login-btn br-10 p-1 btn d-flex align-items-center justify-content-center">
-                                                        <img class="img-fluid m-1" src="assets/facebook-logo.svg" alt="Facebook">
-                                                    </a>
-                                                </div>
-                                                <div class="text-center me-2 flex-fill">
-                                                    <a href="javascript:void(0);"
-                                                        class="social-login-btn br-10 p-1 btn d-flex align-items-center justify-content-center">
-                                                        <img class="img-fluid m-1" src="assets/google-logo.svg" alt="Google">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-										<div class="text-center">
-											<h6 class="fw-normal fs-14 text-dark mb-0">Don’t have an account yet?
-												<a href="register.html" class="hover-a"> Sign up</a>
-											</h6>
-										</div>
-									</div>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-				<!-- end login -->
+    <div class="container-fuild">
+        <div class="row justify-content-center align-items-center vh-100 overflow-auto flex-wrap">
+            <div class="col-lg-4 mx-auto">
+                <!-- LOGIN FORM -->
+                <form id="login-form" class="d-flex justify-content-center align-items-center">
+                    <div class="d-flex flex-column justify-content-lg-center p-4 p-lg-0 pb-0 flex-fill">
+                        <div class="mx-auto mb-5 text-center">
+                            <img src="assets/digima_logo.svg" class="img-fluid" style="width: 120px;">
+                        </div>
+                        <div class="card border-0 p-lg-3 shadow-lg">
+                            <div class="card-body">
+                                <!-- Night mode toggle -->
+                                <div class="toggle-switch" id="modeToggle">
+                                    <div class="toggle-circle" id="toggleCircle">🌙</div>
+                                </div>
+                                <div class="text-center mb-3">
+                                    <h5>Sign In</h5>
+                                </div>
+                                <!-- Email -->
+                                <div class="mb-3">
+                                    <label class="form-label">Email Address</label>
+                                    <input type="email" id="login-email" class="form-control" placeholder="Email" required>
+                                </div>
+                                <!-- Password -->
+                                <div class="mb-3">
+                                    <label class="form-label">Password</label>
+                                    <input type="password" id="login-password" class="form-control" placeholder="Password" required>
+                                </div>
+                                <!-- Sign In Button -->
+                                <div class="mb-1">
+                                    <button type="submit" class="btn btn-dark w-100">Sign In</button>
+                                </div>
+                                <div class="login-or"></div>
+                                <span class="span-or">Or:</span>
+                                <div class="d-flex align-items-center justify-content-center flex-wrap">
+                                <!-- GitHub Login -->
+                                <div class="text-center me-2 flex-fill">
+                                    <a href="javascript:void(0);" id="github-login" 
+                                       class="social-login-btn br-10 p-1 btn d-flex align-items-center justify-content-center">
+                                        <img class="img-fluid m-1" src="assets/github.svg" alt="GitHub">
+										<span class="ms-2">GitHub</span>
+                                    </a>
+                                </div>
+                                <!-- Google Login -->
+                                <div class="text-center me-2 flex-fill">
+                                    <a href="javascript:void(0);" id="google-login" 
+                                       class="social-login-btn br-10 p-1 btn d-flex align-items-center justify-content-center">
+                                        <img class="img-fluid m-1" src="assets/google.svg" alt="Google">
+										<span class="ms-2">Google</span>
+                                    </a>
+                                </div>
+                            </div>
+                                <div class="text-center mt-3">
+                                    <h6>Don’t have an account yet?
+                                        <a href="register_page.html">Sign up</a>
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- END LOGIN FORM -->
+            </div>
+        </div>
+    </div>
 
     <!-- JavaScript link -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="firebase-auth.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+    
+    const firebaseConfig = {
+        apiKey: "AIzaSyCnbjB7QqmbuyxaKtBOiEI5Do4rsKmHWrY",
+        authDomain: "digima-cb2fc.firebaseapp.com",
+        projectId: "digima-cb2fc",
+        storageBucket: "digima-cb2fc.firebasestorage.app",
+        messagingSenderId: "498606156423",
+        appId: "1:498606156423:web:dd642f8202a85bc473e622",
+        measurementId: "G-1E2QX3R9NH"
+    };
+    
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+    
+    // Email login
+    document.getElementById("login-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = document.getElementById("login-email").value;
+        const password = document.getElementById("login-password").value;
+    
+        signInWithEmailAndPassword(auth, email, password)
+            .then(() => window.location.href = "home.html")
+            .catch(err => alert(err.message));
+    });
+    
+    // Google login
+    document.getElementById("google-login").addEventListener("click", () => {
+        signInWithPopup(auth, googleProvider)
+            .then(() => window.location.href = "home.html")
+            .catch(err => alert(err.message));
+    });
+    
+    // GitHub login
+    document.getElementById("github-login").addEventListener("click", () => {
+        signInWithPopup(auth, githubProvider)
+            .then(() => window.location.href = "home.html")
+            .catch(err => alert(err.message));
+    });
+    </script>
 
 	<script>
     const toggleSwitch = document.getElementById('modeToggle');

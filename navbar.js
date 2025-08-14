@@ -1,22 +1,14 @@
-import { auth } from "./firebase-auth.js";
-
 document.addEventListener("DOMContentLoaded", function () {
     fetch("navbar.html")
         .then(response => response.text())
         .then(data => {
             document.getElementById("navbar-container").innerHTML = data;
-            
-            let retries = 0;
-            const waitForNavbarElements = setInterval(() => {
-                if (document.getElementById("login-btn") && document.getElementById("profile-pic")) {
-                    clearInterval(waitForNavbarElements);
-                    checkUserStatus();
-                } else if (retries > 10) {
-                    clearInterval(waitForNavbarElements);
-                    console.error("Navbar elements not found. Authentication check aborted.");
-                }
-                retries++;
-            }, 500);
+
+            if (window.initializeAuthUI) {
+                window.initializeAuthUI();
+            } else {
+                console.error("Auth UI initializer not found. Make sure firebase-auth.js is loaded.");
+            }
         })
         .catch(error => console.error("Error loading navbar:", error));
 });
