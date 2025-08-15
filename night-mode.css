@@ -40,3 +40,19 @@
     body.night-mode h6.fw-normal {
         color: #e0e0e0 !important;
     }
+
+    #login-btn {
+        color: #fff;
+        border: 1px solid #fff;
+    }
+    
+    #signup-btn {
+        background-color: #fff;
+        color: #000;
+    }
+    
+    body.night-mode #login-btn {
+        color: #ccc;
+        border: 1px solid #ccc;
+    }
+

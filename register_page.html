@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="styles.css">
     <!-- Register Page Styles -->
     <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="social-login.css">
+
 </head>
 <body> 
 
@@ -104,28 +106,31 @@
                                         <span class="span-or">Or:</span>
                                     </div>
 
-                                    <!-- Social Login -->
                                     <div class="mb-3">
-                                        <div class="d-flex align-items-center justify-content-center flex-wrap">
-                                            <div class="text-center me-2 flex-fill">
-                                                <a href="javascript:void(0);" id="facebook-register" class="register-social-btn d-flex align-items-center justify-content-center">
-                                                    <img class="img-fluid m-1" src="assets/facebook-logo.svg" alt="Facebook">
-                                                </a>
-                                            </div>
-                                            <div class="text-center me-2 flex-fill">
-                                                <a href="javascript:void(0);" id="google-register" class="register-social-btn d-flex align-items-center justify-content-center">
-                                                    <img class="img-fluid m-1" src="assets/google-logo.svg" alt="Google">
-                                                </a>
-                                            </div>
+                                        <div class="d-flex align-items-center justify-content-center gap-2">
+                                            <!-- GitHub -->
+                                            <a href="javascript:void(0);" id="github-login" 
+                                               class="social-login-btn br-10 p-1 btn d-flex align-items-center justify-content-center flex-fill">
+                                                <img class="img-fluid m-1" src="assets/github.svg" alt="GitHub">
+                                                <span class="ms-2">GitHub</span>
+                                            </a>
+                                    
+                                            <!-- Google -->
+                                            <a href="javascript:void(0);" id="google-login" 
+                                               class="social-login-btn br-10 p-1 btn d-flex align-items-center justify-content-center flex-fill">
+                                                <img class="img-fluid m-1" src="assets/google.svg" alt="Google">
+                                                <span class="ms-2">Google</span>
+                                            </a>
                                         </div>
                                     </div>
+    
 
                                     <!-- Sign In Link -->
-                                    <div class="text-center">
-                                        <h6 class="fw-normal fs-14 mb-0">Already have an account?
-                                            <a href="login.html" class="hover-a"> Sign In</a>
-                                        </h6>
-                                    </div>
+                                   <div class="text-center pt-3">
+                                       <h6 class="fw-normal fs-14 mb-0">Already have an account?
+                                           <a href="login_page.html" class="hover-a"> Sign In</a>
+                                       </h6>
+                                   </div>
                                 </div>
                             </div>
                         </div>
@@ -144,8 +149,7 @@
     <!-- Firebase Registration Script -->
     <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
-
+    import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
     const firebaseConfig = {
         apiKey: "AIzaSyCnbjB7QqmbuyxaKtBOiEI5Do4rsKmHWrY",
         authDomain: "digima-cb2fc.firebaseapp.com",
@@ -155,11 +159,25 @@
         appId: "1:498606156423:web:dd642f8202a85bc473e622",
         measurementId: "G-1E2QX3R9NH"
     };
-
+    
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
-    const provider = new GoogleAuthProvider();
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
+    function signInWithProvider(provider) {
+    signInWithPopup(auth, provider)
+        .then(() => window.location.href = "home.html")
+        .catch(err => {
+            if (err.code === "auth/cancelled-popup-request" || err.code === "auth/popup-closed-by-user") {
+                console.log(`${provider.providerId} popup closed by user.`);
+                return; // silently ignore
+            }
+            alert(err.message);
+        });
+    } 
+
+    
     // Email Registration
     document.getElementById("register-form").addEventListener("submit", (e) => {
         e.preventDefault();
@@ -167,12 +185,12 @@
         const email = document.getElementById("register-email").value.trim();
         const password = document.getElementById("register-password").value;
         const confirm = document.getElementById("register-confirm").value;
-
+    
         if (password !== confirm) {
             alert("Passwords do not match");
             return;
         }
-
+    
         createUserWithEmailAndPassword(auth, email, password)
             .then(userCred => {
                 return updateProfile(userCred.user, { displayName: name });
@@ -183,13 +201,16 @@
             })
             .catch(err => alert(err.message));
     });
-
-    // Google Registration
+    
     document.getElementById("google-register").addEventListener("click", () => {
-        signInWithPopup(auth, provider)
-            .then(() => window.location.href = "home.html")
-            .catch(err => alert(err.message));
+        signInWithProvider(googleProvider);
     });
+    
+    document.getElementById("github-register").addEventListener("click", () => {
+        signInWithProvider(githubProvider);
+    });
+
+
 
     </script>
 

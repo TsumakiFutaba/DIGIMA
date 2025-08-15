@@ -1,7 +1,12 @@
 /* GLOBAL LIGHT/DARK MODE BASE */
 body {
+    user-select: none;
     color: #000; /* default text color for light mode */
     background-color: #fff;
+}
+
+input, textarea {
+    user-select: text;
 }
 
 body.night-mode {

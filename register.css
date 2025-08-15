@@ -1,15 +1,10 @@
-/* =============================
-   REGISTER PAGE - LIGHT MODE (default)
-   ============================= */
-
-/* Container */
 .register-container {
     max-width: 500px;
     margin: auto;
     padding: 2rem;
 }
 
-/* Sign Up Button (light mode - matches social-login.css style) */
+/* Sign Up Button (light mode - matches social-login.css style) */ 
 .btn-signup {
     background-color: #ffffff;
     border: 1px solid #ccc;
@@ -85,10 +80,6 @@ body.night-mode .btn-signup:hover {
         padding: 1rem;
     }
 }
-
-/* =============================
-   NIGHT MODE OVERRIDES
-   ============================= */
 
 /* Page background & text */
 body.night-mode {

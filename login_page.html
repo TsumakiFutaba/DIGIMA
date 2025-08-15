@@ -53,23 +53,21 @@
                                 <div class="login-or"></div>
                                 <span class="span-or">Or:</span>
                                 <div class="d-flex align-items-center justify-content-center flex-wrap">
-                                <!-- GitHub Login -->
-                                <div class="text-center me-2 flex-fill">
-                                    <a href="javascript:void(0);" id="github-login" 
-                                       class="social-login-btn br-10 p-1 btn d-flex align-items-center justify-content-center">
-                                        <img class="img-fluid m-1" src="assets/github.svg" alt="GitHub">
-										<span class="ms-2">GitHub</span>
-                                    </a>
+                                    <div class="text-center me-2 flex-fill">
+                                        <a href="javascript:void(0);" id="github-login" 
+                                           class="social-login-btn br-10 p-1 btn d-flex align-items-center justify-content-center">
+                                            <img class="img-fluid m-1" src="assets/github.svg" alt="GitHub">
+     										<span class="ms-2">GitHub</span>
+                                        </a>
+                                    </div>
+                                    <div class="text-center me-2 flex-fill">
+                                        <a href="javascript:void(0);" id="google-login" 
+                                           class="social-login-btn br-10 p-1 btn d-flex align-items-center justify-content-center">
+                                            <img class="img-fluid m-1" src="assets/google.svg" alt="Google">
+     										<span class="ms-2">Google</span>
+                                        </a>
+                                    </div>
                                 </div>
-                                <!-- Google Login -->
-                                <div class="text-center me-2 flex-fill">
-                                    <a href="javascript:void(0);" id="google-login" 
-                                       class="social-login-btn br-10 p-1 btn d-flex align-items-center justify-content-center">
-                                        <img class="img-fluid m-1" src="assets/google.svg" alt="Google">
-										<span class="ms-2">Google</span>
-                                    </a>
-                                </div>
-                            </div>
                                 <div class="text-center mt-3">
                                     <h6>Don’t have an account yet?
                                         <a href="register_page.html">Sign up</a>
@@ -87,6 +85,7 @@
     <!-- JavaScript link -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="firebase-auth.js"></script>
+    <script type="module" src="navbar.js"></script>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module">
@@ -107,6 +106,19 @@
     const auth = getAuth(app);
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
+
+    function signInWithProvider(provider) {
+    signInWithPopup(auth, provider)
+        .then(() => window.location.href = "home.html")
+        .catch(err => {
+            if (err.code === "auth/cancelled-popup-request" || err.code === "auth/popup-closed-by-user") {
+                console.log(`${provider.providerId} popup closed by user.`);
+                return; // silently ignore
+            }
+            alert(err.message);
+        });
+    }
+
     
     // Email login
     document.getElementById("login-form").addEventListener("submit", (e) => {
@@ -119,19 +131,14 @@
             .catch(err => alert(err.message));
     });
     
-    // Google login
     document.getElementById("google-login").addEventListener("click", () => {
-        signInWithPopup(auth, googleProvider)
-            .then(() => window.location.href = "home.html")
-            .catch(err => alert(err.message));
+    signInWithProvider(googleProvider);
+    });
+
+    document.getElementById("github-login").addEventListener("click", () => {
+        signInWithProvider(githubProvider);
     });
     
-    // GitHub login
-    document.getElementById("github-login").addEventListener("click", () => {
-        signInWithPopup(auth, githubProvider)
-            .then(() => window.location.href = "home.html")
-            .catch(err => alert(err.message));
-    });
     </script>
 
 	<script>
