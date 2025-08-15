@@ -1,42 +1,58 @@
-/* General background for night mode */
-body.night-mode {
-    background-color: #202123;
-    color: #ffffff;
-}
+    /* General background for night mode */
+    body.night-mode {
+        background-color: #202123;
+        color: #ffffff;
+    }
 
-/* Card (Sign In) styles */
-.card {
-    border: 1px solid #ccc; /* Default border for light mode */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+    /* Card (Sign In) styles */
+    .card {
+        border: 1px solid #ccc; /* Default border for light mode */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
 
-body.night-mode .card {
-    background-color: #343541;
-    border: 1px solid #565869; /* Border in night mode */
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
-}
+    body.night-mode .card {
+        background-color: #343541;
+        border: 1px solid #565869; /* Border in night mode */
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+    }
 
-/* Input fields */
-body.night-mode .form-control {
-    background-color: #444654;
-    color: #ffffff;
-    border: 1px solid #565869;
-}
+    /* Input fields */
+    body.night-mode .form-control {
+        background-color: #444654;
+        color: #ffffff;
+        border: 1px solid #565869;
+    }
 
-body.night-mode .form-control::placeholder {
-    color: #b1b3b6;
-}
+    body.night-mode .form-control::placeholder {
+        color: #b1b3b6;
+    }
 
-/* Links */
-body.night-mode a {
-    color: #10a37f;
-}
+    /* Links */
+    body.night-mode a {
+        color: #10a37f;
+    }
 
-body.night-mode a:hover {
-    color: #1db489;
-}
+    body.night-mode a:hover {
+        color: #1db489;
+    }
 
-/* Ensure "Don't have an account" text changes color */
-body.night-mode h6.fw-normal {
-    color: #e0e0e0 !important;
-}
+    /* Ensure "Don't have an account" text changes color */
+    body.night-mode h6.fw-normal {
+        color: #e0e0e0 !important;
+    }
+
+    #login-btn {
+        color: #fff;
+        border: 1px solid #fff;
+    }
+    
+    #signup-btn {
+        background-color: #fff;
+        color: #000;
+    }
+    
+    body.night-mode #login-btn {
+        color: #ccc;
+        border: 1px solid #ccc;
+    }
+
