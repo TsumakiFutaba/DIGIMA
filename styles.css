@@ -117,7 +117,6 @@ body.light-mode .signin-btn {
 }
 
 /* css login */
-<style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -192,7 +191,7 @@ body.light-mode .signin-btn {
         ul li strong {
             font-weight: bold;
         }
-    </style>
+
 
     /*main page home*/
           body {
