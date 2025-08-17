@@ -125,3 +125,212 @@ body.night-mode .btn-signin {
     background-color: #222;
     color: #ffd700;
 }
+/*the css i added*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* =========================
+   Header
+========================= */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    z-index: 1000;
+}
+
+header button {
+    margin-left: 5px;
+    padding: 5px 12px;
+    border: 1px solid #333;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+header button:hover {
+    background-color: #e0e0e0;
+}
+
+/* =========================
+   Main Hero Section
+========================= */
+.main-content {
+    margin-left: 0px;
+    padding: 20px;
+    background: #f4f4f4;
+    min-height: 100vh;
+}
+
+.main-content {
+    min-height: calc(100vh - 150px);
+    /* leave space for header/nav/footer */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px 20px;
+    /* top padding to avoid overlap */
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.try-btn {
+    padding: 8px 20px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    background-color: #eee;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.try-btn:hover {
+    background-color: #ddd;
+}
+
+/* =========================
+   About Section
+========================= */
+section {
+    padding: 50px 20px;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+.features-title {
+    font-size: 14px;
+    color: #555;
+    text-align: left;
+    margin-bottom: 5px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ul {
+    list-style: disc;
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+    padding-left: 20px;
+    font-size: 16px;
+}
+
+ul li {
+    margin: 8px 0;
+}
+
+ul li strong {
+    font-weight: bold;
+}
+
+ul li span {
+    font-size: 12px;
+    color: #666;
+}
+
+/* =========================
+   Sidebar
+========================= */
+.sidebar {
+    width: 220px;
+    background: #1a1a1a;
+    color: white;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    overflow-y: auto; /* Scroll if too many entries */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+.sidebar a.entry {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    margin: 5px 10px;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    border-radius: 8px;
+}
+
+.sidebar a.entry:hover {
+    background: #333;
+    transform: scale(1.02);
+}
+
+.sidebar a.entry.active {
+    background: #444;
+}
+
+.sidebar .icon {
+    font-size: 18px;
+}
+
+/* =========================
+   Not Logged In Notice
+========================= */
+.not-logged-in {
+    position: absolute;
+    bottom: 400px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+    width: 180px;
+}
+
+.not-logged-in .lock-icon img {
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.not-logged-in .locked-text {
+    line-height: 1.4;
+    font-style: italic;
+}
