@@ -1,0 +1,41 @@
+body {
+  background-color: #1e1e1e;
+  color: #000;
+}
+
+.sidebar {
+  background-color: #6c757d; /* Bootstrap gray */
+  height: 100vh;
+  padding-top: 2rem;
+  text-align: center;
+  color: white; /* make text readable */
+}
+
+.main-content {
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.top-links {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+}
+
+textarea {
+  resize: none;
+}
+
+.home-link img {
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.home-link img:hover {
+  transform: scale(1.1);
+}

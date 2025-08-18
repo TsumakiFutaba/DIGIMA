@@ -69,7 +69,7 @@
                                                 <i class="isax isax-lock"></i>
                                             </span>
                                             <span class="isax toggle-password isax-eye-slash"></span>
-                                            <input type="password" id="register-password" class="pass-input form-control border-start-0 ps-0" placeholder="****************" required>
+                                            <input type="password" id="register-password" class="pass-input form-control border-start-0 ps-0" placeholder="**************" required>
                                         </div>
                                     </div>
 
@@ -81,7 +81,7 @@
                                                 <i class="isax isax-lock"></i>
                                             </span>
                                             <span class="isax toggle-passwords isax-eye-slash"></span>
-                                            <input type="password" id="register-confirm" class="pass-input form-control border-start-0 ps-0" placeholder="****************" required>
+                                            <input type="password" id="register-confirm" class="pass-input form-control border-start-0 ps-0" placeholder="**************" required>
                                         </div>
                                     </div>
 
@@ -109,14 +109,14 @@
                                     <div class="mb-3">
                                         <div class="d-flex align-items-center justify-content-center gap-2">
                                             <!-- GitHub -->
-                                            <a href="javascript:void(0);" id="github-login" 
+                                            <a href="javascript:void(0);" id="github-register" 
                                                class="social-login-btn br-10 p-1 btn d-flex align-items-center justify-content-center flex-fill">
                                                 <img class="img-fluid m-1" src="assets/github.svg" alt="GitHub">
                                                 <span class="ms-2">GitHub</span>
                                             </a>
                                     
                                             <!-- Google -->
-                                            <a href="javascript:void(0);" id="google-login" 
+                                            <a href="javascript:void(0);" id="google-register" 
                                                class="social-login-btn br-10 p-1 btn d-flex align-items-center justify-content-center flex-fill">
                                                 <img class="img-fluid m-1" src="assets/google.svg" alt="Google">
                                                 <span class="ms-2">Google</span>
@@ -175,8 +175,7 @@
             }
             alert(err.message);
         });
-    } 
-
+    }
     
     // Email Registration
     document.getElementById("register-form").addEventListener("submit", (e) => {
@@ -203,7 +202,7 @@
     });
     
     document.getElementById("google-register").addEventListener("click", () => {
-        signInWithProvider(googleProvider);
+    signInWithProvider(googleProvider);
     });
     
     document.getElementById("github-register").addEventListener("click", () => {
